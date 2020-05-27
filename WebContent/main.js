@@ -123,17 +123,8 @@ $(document).ready(function(){
 	}
 
 	
-/*
- * 
-		
-		
-		- Cliccando su un bottone visualizzare in un'altra parte della pagina 
-		  il dettaglio completo dello studente
-		  (BONUS provare a far apparire un "Modale" dove verranno 
-		    visualizzati i dettagli) 
-		  [Mettere anche un pulsante per chiudere il modale]
-		
-		- Dare la possibilità di inserire un nuovo studente
+/*  TO FIX
+ * 		- Dare la possibilità di inserire un nuovo studente
 		  (BONUS provare a mettere la form in un Modale)
 		  [Cliccando su un bottone mi viene aperto il modale che può essere
 		  chiuso]
@@ -141,29 +132,7 @@ $(document).ready(function(){
 		- Possibilità di modificare uno studente
 		  (BONUS sempre con un Modale)
  */
-	
-	
-	
-	
-	
-//	<div id="box" class="w3-modal">
-//	<div class="w3-modal-content">
-//
-//	<div class="w3-container"><!-- il div che racchiude il contenuto del modale -->
-//	<!-- uno span che ha la funzione di pulsante di chiusura gestito con l
-//	attributo onclick
-//	 -->
-//	<span onclick="document.getElementById('box').style.display='none'"
-//	class="w3-button w3-display-topright">&times;</span>
-//	<!-- il contenuto  &times; serve a creare una x -->
-//	<p>email: </p><!-- contenuto -->
-//	<p>n. Tel</p><!-- contenuto -->
-//	</div>
-//	</div>
-//	</div>
-//	<button onclick="document.getElementById('box').style.display='block'"
-//	class="w3-button">dettaglio</button>
-	
+		
 	function detail(studente){
 	$(
 		`<div id="box" class="modal-box">
@@ -180,7 +149,7 @@ $(document).ready(function(){
 		<p>cognome : ${studente.cognome}  </p>
 		<p>classe   ${studente.classe}    sezione   ${studente.sezione}  </p>
 		<p>email: ${studente.email}  </p>
-		<p>n. Tel: ${studente.nTel}  </p>
+		<p>Tel: ${studente.nTel}  </p>
 		</div>
 		</div>
 	 `).appendTo('#detail') 
@@ -193,7 +162,8 @@ $(document).ready(function(){
 		
 		const idDettaglio=$(this).attr('data-id')
 		$.get(`studenti/${idDettaglio}`,function(res){ 
-			const sDettaglio={ //creo l oggetto in formato json con i valori contenuti negli input
+			const sDettaglio={ //creo l oggetto in formato json con i 
+					//valori contenuti negli input
 					id : res.id,
 					nome : res.nome,
 					cognome : res.cognome,
@@ -204,6 +174,7 @@ $(document).ready(function(){
 			}//aggiungerlo 
 			detail(sDettaglio)
 		
+			
 	})
 	
 	})
